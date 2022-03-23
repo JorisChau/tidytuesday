@@ -25,7 +25,7 @@ desc <- data.table(
     "<span style='font-size:14pt'>Coretta<br><span style='color:grey40;font-size:12pt'><b>1968: </b><i>Coretta Scott King becomes a widow after the<br>shooting of her husband Martin Luther King Jr.</i></span>",
     "<span style='font-size:14pt'>Jaime<br><span style='color:grey40;font-size:12pt'><b>1976: </b><i>Airing of the TV series The Bionic Woman<br>featuring Jaime Sommers</i></span>",
     "<span style='font-size:14pt'>Marquita<br><span style='color:grey40;font-size:12pt'><b>1983: </b><i>Airing of a toothpaste commercial featuring<br>a young African-American couple Marquita and Chris</i></span>",
-    "<span style='font-size:14pt'>Whitney<br><span style='color:grey40;font-size:12pt'><b>1986: </b><i>Whitney Houston releases becomes a smash<br>pop sensation</i></span>",
+    "<span style='font-size:14pt'>Whitney<br><span style='color:grey40;font-size:12pt'><b>1986: </b><i>Whitney Houston releases her first album<br>and becomes a smash pop sensation</i></span>",
     "<span style='font-size:14pt'>Ariel<br><span style='color:grey40;font-size:12pt'><b>1991: </b><i>The Little Mermaid featuring princess Ariel is a<br>box-office hit</i></span>",
     "<span style='font-size:14pt'>Hillary<br><span style='color:grey40;font-size:12pt'><b>1992: </b><i>Hillary Clinton becomes first lady of the US</i></span>",
     "<span style='font-size:14pt'>Zana<br><span style='color:grey40;font-size:12pt'><b>1994: </b><i>The Sinbad Show featuring orphaned daugher<br>Zana is cancelled by Fox network</i></span>",
@@ -81,7 +81,7 @@ baby_plot <- ggplot(nms) +
 ## save plot
 bbplot::finalise_plot(
   plot_name = baby_plot,
-  save_filepath = "baby_plot.png",
+  save_filepath = "2022/wk12/baby_plot.png",
   source_name = "Sources: babynames R-package | Wikipedia | http://www.nancy.cc/2012/09/18/the-mysterious-baby-name-marquita/", 
   width_pixels = 1000,
   height_pixels = 1200
