@@ -102,22 +102,23 @@ votes[, c("to_country", "from_country") := .(
 votes[, c("points_received", "points_mean") := .(sum(points), mean(points)), by = c("year", "to_country")]
 votes[, points_diff := points - points_mean]
 votes[, points_diff_mean := mean(points_diff), by = c("from_country", "to_country")]
+votes[, year := factor(year, levels = sort(unique(year)))]
 
 ## generate plots
 plots <- list()
+colors <- c("2016" = "#7338B3", "2017" = "#FA822A", "2018" = "#FFBF23", "2019" = "#FC4400", "2021" = "#0479C7", "2022" = "#7CC605")
 
 for(country in countries) {
   
   votes_country <- unique(votes[to_country == country, .(from_country, points_diff, points_diff_mean, year)])
   setorder(votes_country, points_diff_mean)
   votes_country[, from_country := factor(from_country, levels = unique(from_country))]
-  votes_country[, year := factor(year, levels = sort(unique(year)))]
-  
+
   plots[[country]] <- ggplot(votes_country, aes(x = from_country, y = points_diff, fill = year)) +
     geom_col(position = "stack", color = "#FFFFFF", size = 0.1) +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + 
     scale_fill_manual(
-      values = rev(c("#7338B3", "#FA822A", "#FFBF23", "#FC4400", "#0479C7", "#7CC605"))
+      values = colors[which(names(colors) %in% as.character(votes_country[["year"]]))]
     ) +
     scale_x_discrete(name = NULL, labels = get_emoji(levels(votes_country[["from_country"]]), size = 10)) +
     labs(title = sprintf("<p>To %s %s</p>", country, get_emoji(country, size = 25, label = FALSE)), y = "Bias (# Points)") + 
