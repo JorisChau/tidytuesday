@@ -69,7 +69,7 @@ newplot <- ggplot(institutions1, aes(x = SAT_AVG_ALL, y = FTFTPCTPELL_POOLED_SUP
   scale_y_continuous(labels = scales::label_percent()) + 
   scale_color_gradientn(colors = palette(n = 20), guide = guide_colourbar(title.vjust = 0.75, barwidth = grid::unit(5, "cm"))) + 
   labs(
-    title = "US school exclusivity and awarded Pell grants",
+    title = "US school admission criteria and awarded Pell grants",
     subtitle = stringr::str_wrap(paste("This plot highlights the share of full-time, first-time degree/certificate-seeking undergraduate students who received", 
                                        "Pell Grants (data from 2019-2020) across US colleges and universities, an important measure of the access provided to low-income students.",
                                        "This is contrasted against several indicators of US school exclusivity: the average SAT equivalent score of admitted students and the institution's admission rate.",
@@ -83,7 +83,7 @@ newplot <- ggplot(institutions1, aes(x = SAT_AVG_ALL, y = FTFTPCTPELL_POOLED_SUP
     caption = "Data source: https://collegescorecard.ed.gov/data/ Most-Recent-Cohorts-Institution_04262022 (data for academic year 2019-2020 reported in IPEDS 2020-2021)"
   ) + 
   ggrepel::geom_label_repel(
-    aes(point.size = UGDS / 1000, label = institutions1[, fifelse((SAT_AVG_ALL > 1410 & UGDS > 4000 & FTFTPCTPELL_POOLED_SUPP < 0.25), ALIAS, "")]),
+    aes(point.size = UGDS / 1000, label = institutions1[, fifelse((SAT_AVG_ALL > 1425 & UGDS > 4000 & FTFTPCTPELL_POOLED_SUPP < 0.25), ALIAS, "")]),
     max.overlaps = 25,
     point.size = 5,
     size = 3
@@ -123,7 +123,7 @@ newplot <- ggplot(institutions1, aes(x = SAT_AVG_ALL, y = FTFTPCTPELL_POOLED_SUP
   scale_y_continuous(labels = scales::label_percent()) + 
   scale_color_gradientn(colors = palette(n = 20), guide = guide_colourbar(title.vjust = 0.75, barwidth = grid::unit(5, "cm"))) + 
   labs(
-    title = "US school exclusivity and awarded Pell grants",
+    title = "US school admission criteria and awarded Pell grants",
     # subtitle = stringr::str_wrap(paste("This plot highlights the share of full-time, first-time degree/certificate-seeking undergraduate students who received", 
     #                                    "Pell Grants (data from 2019-2020) across US colleges and universities, an important measure of the access provided to low-income students.",
     #                                    "This is contrasted against several indicators of US school exclusivity: the average SAT equivalent score of admitted students and the institution's admission rate.",
