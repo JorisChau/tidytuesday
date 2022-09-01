@@ -86,7 +86,9 @@ newplot <- ggplot(institutions1, aes(x = SAT_AVG_ALL, y = FTFTPCTPELL_POOLED_SUP
     aes(point.size = UGDS / 1000, label = institutions1[, fifelse((SAT_AVG_ALL > 1425 & UGDS > 4000 & FTFTPCTPELL_POOLED_SUPP < 0.25), ALIAS, "")]),
     max.overlaps = 25,
     point.size = 5,
-    size = 3
+    size = 3,
+    fill = "#fcfcfc",
+    family = "Palatino"
   ) + 
   theme(
     text = element_text(family = "Palatino"),
@@ -140,7 +142,9 @@ newplot <- ggplot(institutions1, aes(x = SAT_AVG_ALL, y = FTFTPCTPELL_POOLED_SUP
     aes(point.size = UGDS / 1000, label = institutions1[, fifelse(grepl("(CUNY|University\\sof\\sCalifornia)", INSTNM), ALIAS, "")]),
     max.overlaps = 25,
     point.size = 5,
-    size = 3
+    size = 3,
+    fill = "#fcfcfc",
+    family = "Palatino"
   ) + 
   theme(
     text = element_text(family = "Palatino"),
